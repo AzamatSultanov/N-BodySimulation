@@ -1,6 +1,7 @@
 CC = g++
-CFLAGS = -Wall -std=c++14 -I/opt/homebrew/include
-LDFLAGS = -L/opt/homebrew/lib -lraylib -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL
+CFLAGS = -Wall -O3 -std=c++17 -I./external/raylib/include
+
+LDFLAGS = ./external/raylib/lib/libraylib.a -lGL -lm -lpthread -ldl -lrt -lX11
 
 main: main.o bhtree.o body.o quad.o
 	$(CC) -o main main.o bhtree.o body.o quad.o $(LDFLAGS)
@@ -18,4 +19,4 @@ quad.o: src/quad.cpp src/quad.hpp
 	$(CC) $(CFLAGS) -c src/quad.cpp
 
 clean:
-	rm *.o
+	rm -f *.o

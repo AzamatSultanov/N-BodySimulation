@@ -10,7 +10,7 @@ Body::Body() {
     net_force_y = 0;
 }
 
-Body::Body(double pos_x, double pos_y, double vel_x, double vel_y, float m) {
+Body::Body(double pos_x, double pos_y, double vel_x, double vel_y, float m, char col) {
     position_x = pos_x;
     position_y = pos_y;
     mass = m;
@@ -18,6 +18,8 @@ Body::Body(double pos_x, double pos_y, double vel_x, double vel_y, float m) {
     velocity_y = vel_y;
     net_force_x = 0;
     net_force_y = 0; 
+
+    color = col;
 }
 
 bool Body::in(const Quad &q) const {
@@ -29,7 +31,7 @@ Body Body::add(const Body& a, const Body& b) {
     double center_x = (a.position_x * a.mass + b.position_x * b.mass) / total_mass;
     double center_y = (a.position_y * a.mass + b.position_y * b.mass) / total_mass;
 
-    return Body(center_x, center_y, 0.0, 0.0, total_mass);
+    return Body(center_x, center_y, 0.0, 0.0, total_mass, 'a');
 }
 
 void Body::updatePos(float dt) {

@@ -2,7 +2,7 @@
   "configurations": [
     {
       "name": "Mac",
-      "includePath": ["${workspaceFolder}/**", "/opt/homebrew/include"],
+      "includePath": ["${workspaceFolder}/**"],
       "defines": [],
       "compilerPath": "/usr/bin/clang",
       "cStandard": "c17",

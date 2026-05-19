@@ -1,7 +1,7 @@
 #include "bhtree.hpp"
 #include <cmath>
 
-#define THETA 0.85
+#define THETA 0.7
 #define G 200.0
 
 BHTree::BHTree(const Quad & q) : quadrant(q) { //Quad function doesn't have the default constructor
